@@ -27,14 +27,14 @@ int main() {
             if (r == pad + 1 && c == pad + 1) {
                 cout << greeting;
                 c += greeting.size();
-            } else {
-                // whether at the boundary?
-                if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
-                    cout << "*";
-                } else {
-                    cout << " ";
-                }
+            } else if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1) {
+                cout << "*";
                 ++c;
+            } else {
+                // now put all the pads together
+                string padding(cols - 2, ' ');
+                cout << padding;
+                c += cols - 2;
             }
         }
         cout << endl;
